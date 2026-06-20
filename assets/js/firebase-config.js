@@ -1,9 +1,8 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyBpI_ytmZvQ42bksydcD_zXg6a0F8GRtUs",
-  authDomain: "wat-nongphailom-pakchong-web.firebaseapp.com",
-  projectId: "wat-nongphailom-pakchong-web",
-  storageBucket: "wat-nongphailom-pakchong-web.firebasestorage.app",
-  messagingSenderId: "1098225420650",
-  appId: "1:1098225420650:web:81e59b09f4eda8d1f27d13",
-  measurementId: "G-H2NM4WCJWZ"
-};
+  apiKey: "AIzaSyD2nBxpJwCo_rjM_tj-yh7z7jeTsVGT6Yk",
+  authDomain: "wat-npl-financial-report.firebaseapp.com",
+  projectId: "wat-npl-financial-report",
+  storageBucket: "wat-npl-financial-report.firebasestorage.app",
+  messagingSenderId: "61421752025",
+  appId: "1:61421752025:web:be20ad271acd512264f8c8",
+  measurementId: "G-RJTVJ3KWXL"
