@@ -10,7 +10,7 @@ const money=n=>toNum(n).toLocaleString('th-TH',{minimumFractionDigits:2,maximumF
 const defaults={
  settings:{templeName:'วัดหนองไผ่ล้อม ปากช่อง',address:'300 ม.14 ต.หนองสาหร่าย อ.ปากช่อง จ.นครราชสีมา 30130',phone:'083-386-9519',facebookUrl:'https://www.facebook.com/',abbotImage:'',abbotCaption:'ใจที่โปร่งใส ทำให้บุญงดงาม',logoUrl:''},
  balances:{bank1Name:'บัญชีที่ 1 ธ.ไทยพาณิชย์',bank1Amount:0,bank2Name:'บัญชีที่ 2 ธ.กสิกรไทย',bank2Amount:0,cashAmount:0,updatedAtText:'-'},
- donate:{note:'ร่วมทำบุญได้ตามกำลังศรัทธา',qrImage1:'',accountName1:'วัดหนองไผ่ล้อม ปากช่อง',accountNumber1:'',qrPurpose1:'เพื่อสร้างเสนาสนะ และค่าไฟฟ้า (ชำระหนี้สงฆ์)',qrImage2:'',accountName2:'วัดหนองไผ่ล้อม ปากช่อง',accountNumber2:'',qrPurpose2:'เพื่อกองทุนสร้างโบสถ์ และสร้างนาฬิกา'}
+ donate:{note:'ร่วมทำบุญได้ตามกำลังศรัทธา',qrImage1:'',accountName1:'วัดหนองไผ่ล้อม ปากช่อง',accountNumber1:'',qrPurpose1:'เพื่อสร้างเสนาสนะ และค่าไฟฟ้า (ชำระหนี้สงฆ์)',qrImage2:'',accountName2:'วัดหนองไผ่ล้อม ปากช่อง',accountNumber2:'',qrPurpose2:'เพื่อกองทุนสร้างโบสถ์'}
 };
 function setText(id,v){const e=$(id);if(e)e.textContent=v??''}
 function showImg(id,placeholderId,url){const img=$(id),ph=$(placeholderId);if(!img)return;if(url){img.src=url;img.style.display='block';if(ph)ph.style.display='none'}else{img.removeAttribute('src');img.style.display='none';if(ph)ph.style.display='flex'}}
