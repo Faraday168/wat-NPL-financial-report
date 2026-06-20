@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>รายงานการเงิน - วัดหนองไผ่ล้อม ปากช่อง</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;family=Noto+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .thai-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5z' fill='%23d4af37' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#d4af37",
+                        "on-background": "#1e1b18",
+                        "secondary-fixed-dim": "#ffb693",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#d0c5af",
+                        "tertiary": "#5f5e5a",
+                        "tertiary-fixed": "#e5e2dc",
+                        "on-primary-container": "#554300",
+                        "surface-container": "#f5ece7",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#351000",
+                        "surface": "#fff8f5",
+                        "outline": "#7f7663",
+                        "on-primary": "#ffffff",
+                        "background": "#fff8f5",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#ff7a2e",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-tertiary-container": "#464541",
+                        "surface-dim": "#e1d8d4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4d4635",
+                        "tertiary-fixed-dim": "#c9c6c1",
+                        "on-secondary-fixed-variant": "#7a3000",
+                        "surface-variant": "#e9e1dc",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#b5b3ae",
+                        "surface-tint": "#735c00",
+                        "on-primary-fixed": "#241a00",
+                        "on-surface": "#1e1b18",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary-container": "#612500",
+                        "inverse-primary": "#e9c349",
+                        "secondary-fixed": "#ffdbcc",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "surface-container-highest": "#e9e1dc",
+                        "secondary": "#a04100",
+                        "surface-bright": "#fff8f5",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#efe6e2",
+                        "primary": "#735c00",
+                        "inverse-surface": "#34302c",
+                        "surface-container-low": "#fbf2ed",
+                        "primary-fixed-dim": "#e9c349",
+                        "inverse-on-surface": "#f8efea"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1120px",
+                        "section-gap": "128px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Be Vietnam Pro"],
+                        "label-sm": ["Noto Sans"],
+                        "body-md": ["Noto Sans"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden thai-pattern">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+<div class="font-display-lg text-display-lg text-primary">Wat Nong Phai Lom</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Activities</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Merit Making</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Dhamma</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">Report</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm hover:opacity-90 transition-opacity duration-300">Donate</button>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Hero Title -->
+<section class="mb-16 text-center">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-4 block">ความโปร่งใสและศรัทธา</span>
+<h1 class="font-display-lg text-display-lg text-on-background mb-6">รายงานสรุปผลการดำเนินงานทางการเงิน</h1>
+<p class="font-body-lg text-body-lg text-tertiary max-w-2xl mx-auto">สรุปยอดบัญชี รายรับ-รายจ่าย และความคืบหน้าโครงการก่อสร้างต่างๆ เพื่อแจ้งแก่คณะศรัทธาสาธุชนได้รับทราบโดยทั่วกัน</p>
+</section>
+<!-- Current Balances - Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-section-gap">
+<div class="glass-panel p-8 rounded-xl border border-outline-variant hover:border-primary-container transition-colors duration-500 flex flex-col justify-between h-48">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<h3 class="font-label-sm text-label-sm text-tertiary">Bank Account 1 (บัญชีหลัก)</h3>
+</div>
+<div class="font-display-lg text-headline-md text-on-background">฿ ๑,๒๔๕,๘๐๐.๐๐</div>
+</div>
+<div class="text-right text-primary opacity-60 text-xs">อัปเดตเมื่อ: ๑๕ ต.ค. ๒๕๖๗</div>
+</div>
+<div class="glass-panel p-8 rounded-xl border border-outline-variant hover:border-primary-container transition-colors duration-500 flex flex-col justify-between h-48">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">savings</span>
+<h3 class="font-label-sm text-label-sm text-tertiary">Bank Account 2 (กองทุนบูรณะ)</h3>
+</div>
+<div class="font-display-lg text-headline-md text-on-background">฿ ๘๕๖,๔๒๐.๕๐</div>
+</div>
+<div class="text-right text-primary opacity-60 text-xs">อัปเดตเมื่อ: ๑๕ ต.ค. ๒๕๖๗</div>
+</div>
+<div class="glass-panel p-8 rounded-xl border border-outline-variant hover:border-primary-container transition-colors duration-500 flex flex-col justify-between h-48 bg-primary/5">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h3 class="font-label-sm text-label-sm text-tertiary">Cash (เงินสดหมุนเวียน)</h3>
+</div>
+<div class="font-display-lg text-headline-md text-on-background">฿ ๔๘,๒๑๐.๐๐</div>
+</div>
+<div class="text-right text-primary opacity-60 text-xs">อัปเดตเมื่อ: รายวัน</div>
+</div>
+</section>
+<!-- Monthly Breakdown Table -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-8">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<h2 class="font-headline-md text-headline-md text-on-background px-4">๑. รายละเอียดรายรับ-รายจ่าย รายเดือน</h2>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+<div class="overflow-x-auto rounded-xl border border-outline-variant glass-panel">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-primary border-b border-outline-variant">
+<tr>
+<th class="p-6 font-label-sm text-label-sm">เดือน (๒๕๖๗)</th>
+<th class="p-6 font-label-sm text-label-sm">รายรับ (Income)</th>
+<th class="p-6 font-label-sm text-label-sm">รายจ่าย (Expenses)</th>
+<th class="p-6 font-label-sm text-label-sm text-right">ยอดคงเหลือสุทธิ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Generated months -->
+<script>
+                            const months = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+                            const incomeData = [120000, 145000, 210000, 350000, 115000, 98000, 130000, 142000, 105000, 156000, 180000, 290000];
+                            const expenseData = [85000, 92000, 110000, 180000, 95000, 78000, 89000, 110000, 85000, 92000, 120000, 150000];
+                            
+                            document.write(months.map((m, i) => `
+                                <tr class="hover:bg-primary/5 transition-colors">
+                                    <td class="p-6 font-body-md text-on-surface">${m}</td>
+                                    <td class="p-6 font-body-md text-secondary font-semibold">฿ ${incomeData[i].toLocaleString()}</td>
+                                    <td class="p-6 font-body-md text-tertiary">฿ ${expenseData[i].toLocaleString()}</td>
+                                    <td class="p-6 font-body-md text-on-background text-right font-bold">฿ ${(incomeData[i] - expenseData[i]).toLocaleString()}</td>
+                                </tr>
+                            `).join(''));
+                        </script>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Ongoing Projects -->
+<section class="mb-section-gap">
+<div class="flex items-center gap-4 mb-12">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<h2 class="font-headline-md text-headline-md text-on-background px-4">๒. ความคืบหน้าโครงการก่อสร้างและบูรณะ</h2>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Project 1 -->
+<div class="glass-panel overflow-hidden group">
+<div class="h-64 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A cinematic architectural photograph of a traditional Thai Buddhist chapel (Ubosot) under construction. The structure shows golden roof tiles being laid, surrounded by bamboo scaffolding. The scene is bathed in warm, late afternoon sunlight, casting long, soft shadows. The overall aesthetic is serene, professional, and reflects high-end craftsmanship with a warm gold and white color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQmsmwEserEnsCBnOYfTmOYBLNG1H8uSiRc8wz8UFAMDYXkcskOMTqDB9sTJRBWDBpJ53LPRSDVITkx9luW1ongd41taACZb2pi6MGs57maSIwN5RA2ZYdowBlhX1O-Ttv1JYuAdfJJHLU-CFh3I3c7G9tUJGOs4hfLGQxzlcgnbHUc2tJFtYDrCqp9RPLZtbQNUvyt_C1oUDIiSfeHr0loWiNyfErJtB5CPvz1KQDxO-eXxWSEYyM8Z_0mripPyUSG6Kehg3K8C0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 right-6 flex justify-between items-end">
+<span class="px-3 py-1 bg-primary text-on-primary text-[10px] rounded-full uppercase font-label-sm">In Progress</span>
+</div>
+</div>
+<div class="p-8 border-x border-b border-outline-variant rounded-b-xl">
+<h3 class="font-headline-md text-headline-md mb-2">New Chapel Construction</h3>
+<p class="font-body-md text-tertiary mb-6">งานก่อสร้างพระอุโบสถหลังใหม่เพื่อใช้ประกอบสังฆกรรม</p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-label-sm uppercase text-tertiary">
+<span>งบประมาณ</span>
+<span class="text-on-background">฿ ๑๕,๐๐๐,๐๐๐</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[65%] transition-all duration-1000 ease-out"></div>
+</div>
+<div class="text-right font-label-sm text-primary">ความคืบหน้า: ๖๕%</div>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-panel overflow-hidden group">
+<div class="h-64 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Close-up detail of a professional artist restoring intricate Thai mural paintings on a temple wall. The painting features mythical creatures and floral patterns in faded gold, red, and turquoise. The artist's hand is visible holding a fine brush. Soft, diffused indoor lighting highlights the texture of the old plaster and the vibrancy of the new pigments. Calm, respectful, and artistic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYD5dJ9Nnj_l-RI-bLDq4HdVTOAHhgeh8qNMhfhQpZ6uUdJ48nbAo3Se4foP6JtslS7td84Cft8YycZ1H4C8-UtVErZiiJubXZOkDmdVjoWudYYV8SIZsozmUmNwu72392Vf6UVqExdDop5rKkHBPRJP50eOp1Z-w8mQyMwEFfgTj3bQO2bOFVFmn90aOXwSkZDdlI0CiKSwaP_H60CR9Rf25yeBlBrsccoeUP_lS69ROp_IiBWLXtKNEM0eS9OLXEDKJUe7NaJpE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 right-6 flex justify-between items-end">
+<span class="px-3 py-1 bg-primary text-on-primary text-[10px] rounded-full uppercase font-label-sm">Detailed Work</span>
+</div>
+</div>
+<div class="p-8 border-x border-b border-outline-variant rounded-b-xl">
+<h3 class="font-headline-md text-headline-md mb-2">Restoration of Mural Paintings</h3>
+<p class="font-body-md text-tertiary mb-6">งานบูรณะจิตรกรรมฝาผนังวิหารหลวงพ่อโต</p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-label-sm uppercase text-tertiary">
+<span>งบประมาณ</span>
+<span class="text-on-background">฿ ๒,๕๐๐,๐๐๐</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[40%] transition-all duration-1000 ease-out"></div>
+</div>
+<div class="text-right font-label-sm text-primary">ความคืบหน้า: ๔๐%</div>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-panel overflow-hidden group">
+<div class="h-64 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A modern, minimalist architectural rendering of a multi-purpose education building for a Thai temple. The design incorporates large glass windows, clean white concrete lines, and subtle Thai wooden accents. Surrounded by lush green gardens and lotus ponds. The lighting is bright and ethereal, evoking a sense of wisdom and peace. High-end, clean, corporate spiritual aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6Vns-f7dOMrisI8djKslE3ZTvaiC0KxMZUr6knajgGj7HeIRADHErUZduoiS1DUdPZrxMTDNYz4qtvZWB31vtsjxA7lgWQGG55NC-pHYs83sa5Hw-p4rnXllBROOBlYLphYBeH56mE_8P291Jyn0mHNBoAgaeD7EXkmdGryzKMKbkmm290tSyKwHVTlrwEmeJM2Pnvs-j0mm19hhPwGpU47QtBV6mRKQC7oi10hKnBFva2skt6MdN_xJK0V_HVOMwcv4KMc26V3k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-6 right-6 flex justify-between items-end">
+<span class="px-3 py-1 bg-primary text-on-primary text-[10px] rounded-full uppercase font-label-sm">Foundations</span>
+</div>
+</div>
+<div class="p-8 border-x border-b border-outline-variant rounded-b-xl">
+<h3 class="font-headline-md text-headline-md mb-2">Education Fund Building</h3>
+<p class="font-body-md text-tertiary mb-6">อาคารเรียนสำหรับพระภิกษุและเยาวชนในชุมชน</p>
+<div class="space-y-4">
+<div class="flex justify-between font-label-sm text-label-sm uppercase text-tertiary">
+<span>งบประมาณ</span>
+<span class="text-on-background">฿ ๘,๙๐๐,๐๐๐</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[15%] transition-all duration-1000 ease-out"></div>
+</div>
+<div class="text-right font-label-sm text-primary">ความคืบหน้า: ๑๕%</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Inquiry Section -->
+<section class="max-w-3xl mx-auto p-12 glass-panel rounded-2xl text-center border border-primary-container/20">
+<h2 class="font-headline-md text-headline-md mb-4 text-on-background">หากมีข้อสงสัยเกี่ยวกับข้อมูลทางการเงิน</h2>
+<p class="font-body-md text-tertiary mb-8">พุทธศาสนิกชนสามารถติดต่อขอตรวจสอบสมุดบัญชีฉบับจริงได้ที่ สำนักงานเจ้าอาวาส วัดหนองไผ่ล้อม ทุกวันในเวลาทำการ</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm uppercase transition-all duration-300 hover:shadow-lg hover:-translate-y-1">สอบถามข้อมูลเพิ่มเติม</button>
+<button class="border border-primary text-primary px-8 py-3 rounded-full font-label-sm text-label-sm uppercase transition-all duration-300 hover:bg-primary/5">ดาวน์โหลดรายงานฉบับ PDF</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant mt-20">
+<div class="flex flex-col md:flex-row justify-between items-start gap-gutter py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="max-w-xs">
+<div class="font-headline-md text-headline-md text-primary mb-4">Wat Nong Phai Lom</div>
+<p class="font-body-md text-on-surface-variant">วัดหนองไผ่ล้อม ปากช่อง สถานที่แห่งการฝึกจิต และทำนุบำรุงพุทธศาสนาให้ยั่งยืนสืบไป</p>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-background mb-4 uppercase">Information</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all duration-300" href="#">Temple Map</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all duration-300" href="#">Terms of Service</a>
+</nav>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-background mb-4 uppercase">Contact</h4>
+<nav class="flex flex-col gap-3">
+<a class="font-body-md text-on-surface-variant hover:text-secondary transition-all duration-300" href="#">Contact Us</a>
+<div class="font-body-md text-on-surface-variant mt-2">
+                            ปากช่อง, นครราชสีมา<br/>
+                            โทร: ๐๔๔-XXX-XXXX
+                        </div>
+</nav>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 py-8">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center text-label-sm font-label-sm text-on-surface-variant/60">
+                © 2024 Wat Nong Phai Lom. All rights reserved. Anicca, Dukkha, Anatta.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for scrolling header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-sm', 'bg-surface/95');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-surface/95');
+            }
+        });
+
+        // Simple animation for progress bars when in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target.querySelector('div[class*="bg-primary-container"]');
+                    if (bar) {
+                        const originalWidth = bar.style.width;
+                        // Re-trigger the transition
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = entry.target.dataset.progress;
+                        }, 100);
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Apply observer if needed, currently using CSS-only static widths for simplicity in this version
+    </script>
+</body></html>

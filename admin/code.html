@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ระบบบริหารจัดการ - Wat Nong Phai Lom</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&family=Noto+Sans:wght@400;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100..900&family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#d4af37",
+                    "on-background": "#1e1b18",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-error": "#ffffff",
+                    "outline-variant": "#d0c5af",
+                    "tertiary": "#5f5e5a",
+                    "tertiary-fixed": "#e5e2dc",
+                    "on-primary-container": "#554300",
+                    "surface-container": "#f5ece7",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#351000",
+                    "surface": "#fff8f5",
+                    "outline": "#7f7663",
+                    "on-primary": "#ffffff",
+                    "background": "#fff8f5",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#ff7a2e",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "on-tertiary-container": "#464541",
+                    "surface-dim": "#e1d8d4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#4d4635",
+                    "tertiary-fixed-dim": "#c9c6c1",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "surface-variant": "#e9e1dc",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#b5b3ae",
+                    "surface-tint": "#735c00",
+                    "on-primary-fixed": "#241a00",
+                    "on-surface": "#1e1b18",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-secondary-container": "#612500",
+                    "inverse-primary": "#e9c349",
+                    "secondary-fixed": "#ffdbcc",
+                    "on-tertiary-fixed": "#1c1c18",
+                    "surface-container-highest": "#e9e1dc",
+                    "secondary": "#a04100",
+                    "surface-bright": "#fff8f5",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#efe6e2",
+                    "primary": "#735c00",
+                    "inverse-surface": "#34302c",
+                    "surface-container-low": "#fbf2ed",
+                    "primary-fixed-dim": "#e9c349",
+                    "inverse-on-surface": "#f8efea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "container-max": "1120px",
+                    "section-gap": "128px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Be Vietnam Pro"],
+                    "display-lg": ["Be Vietnam Pro"],
+                    "label-sm": ["Noto Sans"],
+                    "body-md": ["Noto Sans"],
+                    "body-lg": ["Noto Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-item {
+            background-color: #d4af37;
+            color: #ffffff;
+        }
+        body {
+            background-color: #fff8f5;
+            color: #1e1b18;
+        }
+        .thai-pattern {
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div class="flex min-h-screen relative">
+<!-- Thai Pattern Background Overlay -->
+<div class="fixed inset-0 thai-pattern pointer-events-none"></div>
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-surface-container-low border-r border-outline-variant z-20 hidden md:flex flex-col sticky top-0 h-screen">
+<div class="p-8">
+<h1 class="font-display-lg text-primary text-headline-md tracking-tight">Wat Nong Phai Lom</h1>
+<p class="font-label-sm text-on-surface-variant mt-1">แผงควบคุมระบบบริหารจัดการ</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface active-nav-item transition-all duration-300" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body-md">บันทึกการเงิน</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface hover:bg-surface-variant transition-all duration-300" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-body-md">โครงการของวัด</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface hover:bg-surface-variant transition-all duration-300" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-body-md">ธรรมะออนไลน์</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface hover:bg-surface-variant transition-all duration-300" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-body-md">ข่าวสารและกิจกรรม</span>
+</a>
+<div class="pt-8 pb-4">
+<span class="px-4 font-label-sm text-outline uppercase tracking-widest">การตั้งค่า</span>
+</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-on-surface hover:bg-surface-variant transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-md">ตั้งค่าเว็บไซต์ทั่วไป</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded text-error hover:bg-error-container transition-all duration-300" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body-md">ออกจากระบบ</span>
+</a>
+</nav>
+<div class="p-8 border-t border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary font-bold">
+                        ศ.
+                    </div>
+<div>
+<p class="font-label-sm text-on-surface">พระศิริชัย</p>
+<p class="text-[11px] text-on-surface-variant">เจ้าอาวาส (Admin)</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 min-w-0 z-10 flex flex-col">
+<!-- Header Bar -->
+<header class="h-20 bg-surface/90 backdrop-blur-md sticky top-0 flex items-center justify-between px-margin-desktop border-b border-outline-variant/30">
+<div>
+<h2 class="font-headline-md text-on-surface">บันทึกการเงิน (Financial Records)</h2>
+</div>
+<div class="flex items-center gap-gutter">
+<button class="relative p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<div class="h-6 w-px bg-outline-variant"></div>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-lg hover:brightness-110 transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-sm">เพิ่มรายการใหม่</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-margin-desktop space-y-gutter">
+<!-- Financial Overview Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container rounded-xl p-6 transition-transform hover:-translate-y-1">
+<p class="font-label-sm text-on-surface-variant mb-2">ยอดบริจาครวมเดือนนี้</p>
+<h3 class="font-headline-md text-primary">฿ 145,200.00</h3>
+<div class="mt-4 flex items-center gap-2 text-[12px] text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>เพิ่มขึ้น 12% จากเดือนที่แล้ว</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-6 transition-transform hover:-translate-y-1">
+<p class="font-label-sm text-on-surface-variant mb-2">รายจ่ายบูรณะวัด</p>
+<h3 class="font-headline-md text-secondary">฿ 82,450.00</h3>
+<div class="mt-4 flex items-center gap-2 text-[12px] text-secondary">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>3 โครงการที่กำลังดำเนินการ</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-6 transition-transform hover:-translate-y-1">
+<p class="font-label-sm text-on-surface-variant mb-2">ยอดคงเหลือสุทธิ</p>
+<h3 class="font-headline-md text-on-surface">฿ 62,750.00</h3>
+<div class="mt-4 flex items-center gap-2 text-[12px] text-tertiary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>ตรวจสอบล่าสุดเมื่อ 2 ชม. ที่แล้ว</span>
+</div>
+</div>
+</div>
+<!-- Financial Data Table -->
+<section class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant">
+<div class="px-8 py-6 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h4 class="font-headline-md text-on-surface text-lg">รายการธุรกรรมล่าสุด</h4>
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface border border-outline-variant rounded-full text-label-sm focus:outline-none focus:ring-1 focus:ring-primary w-64" placeholder="ค้นหารายการ..." type="text"/>
+</div>
+<button class="flex items-center gap-1 border border-outline-variant px-4 py-2 rounded-full text-label-sm hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                                ตัวกรอง
+                            </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high">
+<th class="px-8 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">วันที่</th>
+<th class="px-8 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">รายการ</th>
+<th class="px-8 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider">ประเภท</th>
+<th class="px-8 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider text-right">จำนวนเงิน</th>
+<th class="px-8 py-4 font-label-sm text-on-surface-variant uppercase tracking-wider text-center">จัดการ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5 text-on-surface">15 ต.ค. 2567</td>
+<td class="px-8 py-5">
+<div class="font-body-md text-on-surface">บริจาคสร้างศาลาการเปรียญ</div>
+<div class="text-[12px] text-on-surface-variant">คุณหญิงมณีวรรณ และครอบครัว</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-block px-3 py-1 bg-primary-fixed/30 text-primary rounded-full text-[12px] font-semibold">รายรับ</span>
+</td>
+<td class="px-8 py-5 text-right font-semibold text-primary">฿ 50,000.00</td>
+<td class="px-8 py-5">
+<div class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5 text-on-surface">14 ต.ค. 2567</td>
+<td class="px-8 py-5">
+<div class="font-body-md text-on-surface">ค่าน้ำ-ค่าไฟ ประจำเดือน</div>
+<div class="text-[12px] text-on-surface-variant">การไฟฟ้าส่วนภูมิภาค</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-block px-3 py-1 bg-secondary-container/10 text-secondary rounded-full text-[12px] font-semibold">รายจ่าย</span>
+</td>
+<td class="px-8 py-5 text-right font-semibold text-secondary">฿ 12,400.00</td>
+<td class="px-8 py-5">
+<div class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-8 py-5 text-on-surface">12 ต.ค. 2567</td>
+<td class="px-8 py-5">
+<div class="font-body-md text-on-surface">ซ่อมแซมหลังคากุฏิสงฆ์</div>
+<div class="text-[12px] text-on-surface-variant">ช่างรับเหมาสมเกียรติ</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-block px-3 py-1 bg-secondary-container/10 text-secondary rounded-full text-[12px] font-semibold">รายจ่าย</span>
+</td>
+<td class="px-8 py-5 text-right font-semibold text-secondary">฿ 35,000.00</td>
+<td class="px-8 py-5">
+<div class="flex justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-4 bg-surface-container-low border-t border-outline-variant flex justify-between items-center">
+<span class="text-[12px] text-on-surface-variant">แสดง 1-3 จากทั้งหมด 120 รายการ</span>
+<div class="flex gap-1">
+<button class="p-1 rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="px-3 py-1 bg-primary text-on-primary rounded text-label-sm">1</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded text-label-sm">2</button>
+<button class="px-3 py-1 hover:bg-surface-container-high rounded text-label-sm">3</button>
+<button class="p-1 rounded hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</section>
+<!-- Project Management Grid Section -->
+<div class="mt-section-gap">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline-md text-on-surface mb-2">โครงการของวัด (Temple Projects)</h2>
+<p class="text-on-surface-variant">อัปเดตความคืบหน้าโครงการก่อสร้างและบูรณปฏิสังขรณ์</p>
+</div>
+<button class="flex items-center gap-2 border border-primary text-primary px-6 py-2.5 rounded-lg hover:bg-primary hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined">add_to_photos</span>
+<span class="font-label-sm">เริ่มโครงการใหม่</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Project Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row h-full">
+<div class="w-full md:w-48 h-48 md:h-auto relative">
+<img class="w-full h-full object-cover" data-alt="A detailed architectural photo showing the construction of a traditional Thai temple pavilion, featuring gold-trimmed dark wood structures, scaffoldings, and artisans at work. Soft, warm daylight illuminates the scene, highlighting the intricate craftsmanship. The background shows a lush, serene temple garden under a clear morning sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnoyRPsl6wbj4SfsL2m_6RdHeNr8UjeInNaBG7LmDGAwuH0uahn4vCeBSNw7A768SYuZWEIiiOVwwO_b7JUW5c_M-tFSPxbVrq6j_Gx5UkLvRcZ313ViNJ0jiKvOEN3ThlaToI-E78kHWWs7deyVD9mAj5KJYt0z9GUdtyTcXwrDs-4ih1ACEZAMYA6zufWy_2joLTbmW2sTkAwxCIQZDxP7yCn4Nt4kJMxLpbiDHDll7Yh53yyhN7fU7VQormsN3Py6FQiVZ8NJs"/>
+<button class="absolute top-2 right-2 bg-surface/80 p-2 rounded-full hover:bg-white shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h5 class="font-headline-md text-[18px] text-on-surface">บูรณะหลังคาอุโบสถ</h5>
+<span class="text-label-sm bg-primary/10 text-primary px-3 py-1 rounded-full">เฟส 2</span>
+</div>
+<div class="space-y-4 flex-1">
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span class="text-on-surface-variant">ความคืบหน้า</span>
+<span class="text-primary font-bold">75%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 75%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[11px] text-outline uppercase tracking-wider mb-1">งบประมาณที่ใช้</p>
+<p class="font-body-md font-semibold">฿ 450,000</p>
+</div>
+<div>
+<p class="text-[11px] text-outline uppercase tracking-wider mb-1">งบที่เหลือ</p>
+<p class="font-body-md font-semibold">฿ 150,000</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<button class="flex-1 py-2 bg-surface border border-outline-variant rounded hover:bg-surface-variant transition-colors text-label-sm">แก้ไขข้อมูล</button>
+<button class="px-3 py-2 bg-surface border border-outline-variant rounded hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">share</span></button>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row h-full">
+<div class="w-full md:w-48 h-48 md:h-auto relative">
+<img class="w-full h-full object-cover" data-alt="Close up of a new Buddhist meditation center interior with polished light wood floors, large open windows overlooking a Zen-like stone garden. The lighting is diffused and calm, with several traditional Thai floor cushions arranged neatly. The atmosphere is quiet, modern, and spiritually uplifting with gold leaf accents on the pillars." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqNMBQnlXz-saKRtwlL_l13q27ZYVUnPWLkX7ygWOyaplguAc2mg9gWx45Ir0VVAacEz7rWaskQUZlcNXtVSJq453OJu8eF7bxfviplNdYtCApsfbyB_O0BM7BuqhxuiZ_KkuUc4dALWYhlgm2CnRwLVYZ_gRtDDfd_rhLsSqo4iKbDcbOMmnieFtcIalSM8FdECNwPvM40mRVWhOd1tfhF0jCL2tUOby5-Eqk5XN7q09lDiDTTiqUDA3YryuqSsFIW6JKIq8V410"/>
+<button class="absolute top-2 right-2 bg-surface/80 p-2 rounded-full hover:bg-white shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<h5 class="font-headline-md text-[18px] text-on-surface">สร้างศูนย์ปฏิบัติธรรมใหม่</h5>
+<span class="text-label-sm bg-tertiary-container/30 text-tertiary px-3 py-1 rounded-full">เริ่มโครงการ</span>
+</div>
+<div class="space-y-4 flex-1">
+<div>
+<div class="flex justify-between text-label-sm mb-2">
+<span class="text-on-surface-variant">ความคืบหน้า</span>
+<span class="text-primary font-bold">15%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 15%"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[11px] text-outline uppercase tracking-wider mb-1">งบประมาณที่ใช้</p>
+<p class="font-body-md font-semibold">฿ 120,000</p>
+</div>
+<div>
+<p class="text-[11px] text-outline uppercase tracking-wider mb-1">งบที่เหลือ</p>
+<p class="font-body-md font-semibold">฿ 2,380,000</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex gap-2">
+<button class="flex-1 py-2 bg-surface border border-outline-variant rounded hover:bg-surface-variant transition-colors text-label-sm">แก้ไขข้อมูล</button>
+<button class="px-3 py-2 bg-surface border border-outline-variant rounded hover:bg-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">share</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Site Settings & Abbot Message Section -->
+<div class="mt-section-gap grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<section class="lg:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<h4 class="font-headline-md text-on-surface mb-6">ตั้งค่าหน้าแรกและข้อมูลทั่วไป</h4>
+<form class="space-y-6">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-2">โอวาทธรรมจากเจ้าอาวาส (Abbot's Message)</label>
+<textarea class="w-full bg-surface border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-body-md p-4" placeholder="กรอกข้อความโอวาทธรรมที่ต้องการแสดงบนหน้าหลัก..." rows="6">การครองตนด้วยสติ คือหัวใจของการปฏิบัติธรรม วัดของเรามุ่งเน้นให้พุทธศาสนิกชนเข้าถึงแก่นแท้ของความสงบและการแบ่งปัน...</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-2">เบอร์โทรศัพท์ติดต่อ</label>
+<input class="w-full bg-surface border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-body-md py-3 px-2" type="text" value="044-xxx-xxxx"/>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-2">อีเมลติดต่อ</label>
+<input class="w-full bg-surface border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-body-md py-3 px-2" type="email" value="contact@watnongphailom.org"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-on-surface-variant mb-2">ที่อยู่ของวัด</label>
+<input class="w-full bg-surface border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-body-md py-3 px-2" type="text" value="เลขที่ 123 ต.ในเมือง อ.เมือง จ.นครราชสีมา 30000"/>
+</div>
+<div class="pt-4 flex justify-end">
+<button class="bg-primary text-on-primary px-10 py-3 rounded-lg hover:brightness-110 transition-all font-label-sm" type="submit">บันทึกการเปลี่ยนแปลงทั้งหมด</button>
+</div>
+</form>
+</section>
+<aside class="space-y-gutter">
+<div class="bg-primary-container/20 p-6 rounded-xl border border-primary-container/30">
+<h5 class="font-label-sm text-primary mb-4 uppercase tracking-widest">สถานะระบบ</h5>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+<span class="text-body-md">เชื่อมต่อเว็บไซต์ปกติ</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-[12px]">
+<span class="text-on-surface-variant">ผู้เข้าชมวันนี้</span>
+<span class="font-bold">1,240</span>
+</div>
+<div class="flex justify-between text-[12px]">
+<span class="text-on-surface-variant">พื้นที่เก็บข้อมูลรูปภาพ</span>
+<span class="font-bold">4.2 GB / 10 GB</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl border border-outline-variant">
+<h5 class="font-label-sm text-on-surface-variant mb-4 uppercase tracking-widest">ความปลอดภัย</h5>
+<button class="w-full flex items-center justify-between p-3 bg-surface rounded hover:bg-white transition-all text-label-sm border border-outline-variant mb-2">
+                                เปลี่ยนรหัสผ่าน
+                                <span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 bg-surface rounded hover:bg-white transition-all text-label-sm border border-outline-variant">
+                                ประวัติการเข้าระบบ
+                                <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer Integration -->
+<footer class="mt-auto border-t border-outline-variant bg-surface-container-low py-8 px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">© 2024 Wat Nong Phai Lom. All rights reserved. Anicca, Dukkha, Anatta.</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<script>
+        // Simple micro-interaction for table rows or buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Potential Ripple Effect or simple console feedback
+                console.log('Action triggered');
+            });
+        });
+
+        // Sticky header opacity change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
