@@ -6,3 +6,8 @@ export const firebaseConfig = {
   messagingSenderId: "61421752025",
   appId: "1:61421752025:web:be20ad271acd512264f8c8",
   measurementId: "G-RJTVJ3KWXL"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
