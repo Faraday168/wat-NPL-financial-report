@@ -3,7 +3,7 @@ service cloud.firestore {
   match /databases/{database}/documents {
     match /stats/site {
       allow read: if true;
-      allow create, update: if request.resource.data.keys().hasOnly(['views','updatedAt']);
+      allow create, update: if true;
     }
     match /{document=**} {
       allow read: if true;
